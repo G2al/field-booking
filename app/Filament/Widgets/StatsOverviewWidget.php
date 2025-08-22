@@ -31,8 +31,8 @@ class StatsOverviewWidget extends BaseWidget
                 ->descriptionIcon('heroicon-m-chart-bar')
                 ->color('info'),
                 
-            Stat::make('Tavoli Attivi', $activeTables)
-                ->description('Tavoli disponibili')
+            Stat::make('Campi Attivi', $activeTables)
+                ->description('Campi disponibili')
                 ->descriptionIcon('heroicon-m-building-storefront')
                 ->color('warning'),
                 

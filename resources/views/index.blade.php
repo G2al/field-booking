@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('img/logo.png') }}" type="image/png">
-    <title>Prenota un Tavolo - Ristorante</title>
+    <title>Prenota un Campo - Field Booking System</title>
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <!-- Custom css -->
@@ -20,28 +20,28 @@
         <!-- Booking Section -->
 <div class="search-card">
         <div class="text-center mb-4">
-        <h1 class="sold-out-logo mb-0">Sold Out</h1>
+        <h1 class="sold-out-logo mb-0">El Pibe De Oro</h1>
     </div>
-    <!-- Header Section con Menu e Social -->
+    <!-- Header Section con Info e Social -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <!-- Menu Button -->
+        <!-- Info Button -->
         <div class="flex-grow-1 me-2">
-            <a href="https://drive.google.com/file/d/1KyPcbz5JczcsdXdFLKoo5gbrFavv-o_6/view" 
+            <a href="https://maps.app.goo.gl/2NhPvnqZKoB4ZziT6" 
                target="_blank" 
                class="btn-app p-2 fw-bold btn w-100">
-                <i class="bi bi-file-text me-2"></i>Menu
+                <i class="bi bi-info-circle me-2"></i>Indirizzo
             </a>
         </div>
         
         <!-- Social Icons -->
         <div class="d-flex gap-2">
-            <a href="https://www.instagram.com/paninoteca_soldout/" 
+            <a href="https://www.instagram.com/elpibedeoroclub/" 
                target="_blank" 
                class="btn p-2"
                style="background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: white; border: none;">
                 <i class="bi bi-instagram"></i>
             </a>
-            <a href="https://www.tiktok.com/@_soldoutexperience" 
+            <a href="https://www.tiktok.com/@elpibedeoroclub" 
                target="_blank" 
                class="btn p-2"
                style="background-color: #000000; color: white; border: none;">
@@ -51,9 +51,9 @@
     </div>
     
     <h6 class="text-primary-color mb-3 fw-semibold">
-        <i class="bi bi-calendar-check me-2"></i>Prenota il tuo Tavolo
+        <i class="bi bi-geo-alt me-2"></i>Prenota il tuo Campo
     </h6>
-    <!-- resto del form rimane uguale -->
+    
             <form id="bookingForm">
                 <!-- Step 1: Data -->
                 <div class="mb-3">
@@ -64,16 +64,16 @@
                     <div class="form-text" id="dateHelp">Seleziona una data disponibile</div>
                 </div>
 
-                <!-- Step 2: Persone -->
+                <!-- Step 2: Giocatori -->
                 <div class="mb-3" id="guestsSection" style="display: none;">
                     <label for="guestsCount" class="form-label">
-                        <i class="bi bi-people me-1 text-secondary-color"></i>Numero Persone
+                        <i class="bi bi-trophy me-1 text-secondary-color"></i>Numero Giocatori
                     </label>
                     
                     <!-- Dropdown personalizzato -->
                     <div class="custom-dropdown" id="guestsDropdown">
                         <div class="custom-dropdown-trigger" id="guestsDropdownTrigger">
-                            <span class="custom-dropdown-text placeholder" id="guestsDropdownText">Seleziona numero persone</span>
+                            <span class="custom-dropdown-text placeholder" id="guestsDropdownText">Seleziona numero giocatori</span>
                             <i class="bi bi-chevron-down custom-dropdown-arrow"></i>
                         </div>
                         <div class="custom-dropdown-menu" id="guestsDropdownMenu">
@@ -97,14 +97,14 @@
                     <!-- Dropdown personalizzato -->
                     <div class="custom-dropdown" id="timeDropdown">
                         <div class="custom-dropdown-trigger" id="timeDropdownTrigger">
-                            <span class="custom-dropdown-text placeholder" id="timeDropdownText">Seleziona prima data e persone</span>
+                            <span class="custom-dropdown-text placeholder" id="timeDropdownText">Seleziona prima data e giocatori</span>
                             <i class="bi bi-chevron-down custom-dropdown-arrow"></i>
                         </div>
                         
                         <div class="custom-dropdown-menu" id="timeDropdownMenu">
                             <!-- Contenuto placeholder iniziale -->
                             <div class="custom-dropdown-item disabled-item">
-                                <i class="bi bi-clock me-2"></i>Seleziona prima persone
+                                <i class="bi bi-clock me-2"></i>Seleziona prima giocatori
                             </div>
                         </div>
                     </div>
@@ -138,10 +138,10 @@
 
                     <div class="mb-3">
                         <label for="specialRequests" class="form-label">
-                            <i class="bi bi-chat-dots me-1 text-primary-color"></i>Richieste Speciali (opzionale)
+                            <i class="bi bi-chat-dots me-1 text-primary-color"></i>Note Aggiuntive (opzionale)
                         </label>
                         <textarea class="form-control" id="specialRequests" rows="3" 
-                                placeholder="Es: Seggiolone per bambino, decorazioni compleanno, tavolo vicino finestra..."></textarea>
+                                placeholder="Es: Attrezzature aggiuntive, palloni specifici, esigenze particolari..."></textarea>
                         <div class="form-text">Campo facoltativo per richieste particolari</div>
                     </div>
                 </div>

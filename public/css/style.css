@@ -69,7 +69,7 @@ body {
     font-family: "karla", sans-serif !important;
     font-size: 13px;
     background-color: var(--background);
-    background-image: url('../images/sold.jpg');
+    background-image: url('../images/pibedeoro.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1950,7 +1950,7 @@ a {
     font-family: 'Arial Black', sans-serif;
     font-size: 2.5rem;
     font-weight: 900;
-    color: #dc2626;
+    color: #535949;
     letter-spacing: 2px;
 }
 /* Responsive */

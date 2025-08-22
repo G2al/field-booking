@@ -91,13 +91,13 @@ document.addEventListener('DOMContentLoaded', function() {
                        }
                        showError('Non ci sono tavoli disponibili per la data selezionata.');
                    } else {
-                       data.forEach(capacity => {
-                           const item = document.createElement('div');
-                           item.className = 'custom-dropdown-item';
-                           item.setAttribute('data-value', capacity);
-                           item.innerHTML = `<i class="bi bi-people me-2"></i>${capacity} ${capacity === 1 ? 'Persona' : 'Persone'}`;
-                           dropdownMenu.appendChild(item);
-                       });
+                        data.forEach(capacity => {
+                            const item = document.createElement('div');
+                            item.className = 'custom-dropdown-item';
+                            item.setAttribute('data-value', capacity.capacity);
+                            item.innerHTML = `<i class="bi bi-trophy me-2"></i>${capacity.display_text}`;
+                            dropdownMenu.appendChild(item);
+                        });
                        
                        errorMessage.style.display = 'none';
                    }

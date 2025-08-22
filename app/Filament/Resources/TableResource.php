@@ -18,13 +18,13 @@ class TableResource extends Resource
 {
     protected static ?string $model = TableModel::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-table-cells';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
 
-    protected static ?string $navigationLabel = 'Tavoli';
+    protected static ?string $navigationLabel = 'Campi';
 
-    protected static ?string $modelLabel = 'Tavolo';
+    protected static ?string $modelLabel = 'Campo';
 
-    protected static ?string $pluralModelLabel = 'Tavoli';
+    protected static ?string $pluralModelLabel = 'Campi';
 
     protected static ?int $navigationSort = 1;
 
@@ -33,16 +33,18 @@ class TableResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->label('Nome Tavolo')
+                    ->label('Nome Campo')
+                    ->placeholder('Es: Campo 1, Campo Centrale...')
                     ->required()
                     ->maxLength(255),
-                    
+
                 Forms\Components\TextInput::make('capacity')
-                    ->label('Posti Disponibili')
+                    ->label('Numero Massimo Giocatori')
                     ->required()
                     ->numeric()
-                    ->minValue(1)
-                    ->maxValue(20),
+                    ->minValue(5)
+                    ->maxValue(22)
+                    ->helperText('Es: 10 per calcetto, 22 per campo grande'),
                     
                 Forms\Components\Toggle::make('is_active')
                     ->label('Attivo')
@@ -77,11 +79,11 @@ class TableResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Nome Tavolo')
+                    ->label('Nome Campo')
                     ->searchable(),
                     
                 Tables\Columns\TextColumn::make('capacity')
-                    ->label('Posti')
+                    ->label('Giocatori')
                     ->sortable(),
                     
                 Tables\Columns\ToggleColumn::make('is_active')

@@ -183,13 +183,13 @@ class BookingController extends Controller
         $dataFormatted = Carbon::parse($booking->date)->locale('it')->isoFormat('DD/MM - dddd');
         $oraFormatted = Carbon::parse($booking->timeSlot->time)->format('H:i');
 
-        $message = "🍽️ <b>NUOVA PRENOTAZIONE!</b>\n\n" .
+        $message = "⚽ <b>NUOVA PRENOTAZIONE CAMPO!</b>\n\n" .
                 "👤 <b>Cliente:</b> {$booking->customer_name}\n" .
                 "📞 <b>Telefono:</b> {$booking->customer_phone}\n" .
-                "🪑 <b>Tavolo:</b> {$availableTable->name}\n" .
+                "🏟️ <b>Campo:</b> {$availableTable->name}\n" .
                 "📅 <b>Data:</b> {$dataFormatted}\n" .
                 "⏰ <b>Ora:</b> {$oraFormatted}\n" .
-           "👥 <b>Ospiti:</b> {$booking->guests_count}";
+        "👥 <b>Giocatori:</b> {$booking->guests_count}";
 
         TelegramService::sendNotification($message);
         
@@ -244,12 +244,18 @@ class BookingController extends Controller
                 ->exists();
                 
             if ($hasAvailableSlot) {
-                $availableCapacities->push($table->capacity);
+                $playersPerSide = intval($table->capacity / 2);
+                $availableCapacities->push([
+                    'capacity' => $table->capacity,
+                    'name' => $table->name,
+                    'format' => $playersPerSide . ' vs ' . $playersPerSide,
+                    'display_text' => $table->name . ' - ' . $playersPerSide . ' vs ' . $playersPerSide . ' (' . $table->capacity . ' giocatori)'
+                ]);
             }
         }
         
-        // Rimuovi duplicati e ordina
-        $uniqueCapacities = $availableCapacities->unique()->sort()->values();
+        // Rimuovi duplicati per capacità e ordina
+        $uniqueCapacities = $availableCapacities->unique('capacity')->sortBy('capacity')->values();
         
         return response()->json($uniqueCapacities);
     }
